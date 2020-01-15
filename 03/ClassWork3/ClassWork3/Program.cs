@@ -15,7 +15,7 @@ namespace ClassWork3
             s = 10;
             Console.WriteLine((int)s + 5);*/
 
-            /*if (args != null && args.Length > 0)
+            if (args != null && args.Length > 0)
             {
                 Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(args[0]);
 
@@ -38,12 +38,12 @@ namespace ClassWork3
             double number = double.Parse(input);
 
             //Console.WriteLine("Результат возведения в квадрат: " + number * number);
-            Console.WriteLine(Resources.Result + number * number);*/
+            Console.WriteLine(Resources.Result + number * number);
 
 
             //Arrays
 
-            int[] integerArray = new int[3];
+            /*int[] integerArray = new int[3];
 
             integerArray[0] = 1;
             integerArray[1] = -5;
@@ -66,7 +66,7 @@ namespace ClassWork3
             string[] array = "emi, , , bob, elsa".Split(separator: ", ",
                 StringSplitOptions.RemoveEmptyEntries);
 
-            Array.Resize(ref array, newSize: 10);
+            Array.Resize(ref array, newSize: 10);*/
             
 
         }
