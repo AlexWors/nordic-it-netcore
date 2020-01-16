@@ -6,37 +6,29 @@ namespace HomeWork3
     {
         static void Main(string[] args)
         {
+            const int arrayLength = 3;
+            string[] names = new string[arrayLength];
             Console.Write("Enter first name: ");
-            string firstName = Console.ReadLine();
+            names[0] = Console.ReadLine();
             Console.Write("Enter the second name: ");
-            string secondName = Console.ReadLine();
+            names[1] = Console.ReadLine();
             Console.Write("Enter the third name: ");
-            string thirdName = Console.ReadLine();
+            names[2] = Console.ReadLine();
 
-            Console.Write("Enter the age of the #1 person: ");
-            int firstAge = int.Parse(Console.ReadLine());
-            Console.Write("Enter the age of the #2 person: ");
-            int secondtAge = int.Parse(Console.ReadLine());
-            Console.Write("Enter the age of the #3 person: ");
-            int thirdAge = int.Parse(Console.ReadLine());
-
-            string[] names = new string[3];
-
-            names[0] = firstName;
-            names[1] = secondName;
-            names[2] = thirdName;
             
-
-            int[] age =
+            int[] ages = new int[arrayLength];
             {
-                firstAge + 4,
-                secondtAge + 4,
-                thirdAge + 4,
+                Console.Write("Enter the age of the #1 person: ");
+                ages[0] = int.Parse(Console.ReadLine()) + 4;
+                Console.Write("Enter the age of the #2 person: ");
+                ages[1] = int.Parse(Console.ReadLine()) + 4;
+                Console.Write("Enter the age of the #3 person: ");
+                ages[2] = int.Parse(Console.ReadLine()) + 4;
             };
 
-            for(int i = 0; i < names.Length && i < age.Length; i++)
+            for(int i = 0; i < arrayLength;  i++)
             {
-                Console.WriteLine("Name: " + names[i] + " age in 4 years: " + age[i]);
+                Console.WriteLine("Name: " + names[i] + " age in 4 years: " + ages[i]);
             }
 
 
