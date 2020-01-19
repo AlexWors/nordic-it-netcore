@@ -8,23 +8,18 @@ namespace HomeWork3
         {
             const int arrayLength = 3;
             string[] names = new string[arrayLength];
-            Console.Write("Enter first name: ");
-            names[0] = Console.ReadLine();
-            Console.Write("Enter the second name: ");
-            names[1] = Console.ReadLine();
-            Console.Write("Enter the third name: ");
-            names[2] = Console.ReadLine();
-
-            
-            int[] ages = new int[arrayLength];
+            for (int i = 0; i < arrayLength; i++)
             {
-                Console.Write("Enter the age of the #1 person: ");
-                ages[0] = int.Parse(Console.ReadLine()) + 4;
-                Console.Write("Enter the age of the #2 person: ");
-                ages[1] = int.Parse(Console.ReadLine()) + 4;
-                Console.Write("Enter the age of the #3 person: ");
-                ages[2] = int.Parse(Console.ReadLine()) + 4;
-            };
+                Console.Write($"Enter the name of person #{i}: ");
+                names[i] = Console.ReadLine();
+            }
+
+            int[] ages = new int[arrayLength];
+            for (int i = 0; i < arrayLength; i++)
+            {
+                Console.Write($"Enter the age of person #{i}: ");
+                ages[i] = int.Parse(Console.ReadLine()) + 4;
+            }
 
             for(int i = 0; i < arrayLength;  i++)
             {
