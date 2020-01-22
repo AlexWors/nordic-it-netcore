@@ -7,7 +7,7 @@ namespace ClassWork4_2
         public enum Color { Red, Green, Blue }
         static void Main(string[] args)
         {
-            Color c = (Color)(new Random()).Next(0, 4);
+            Color c = (Color)(new Random()).Next(0, 3);
             switch (c)
             {
                 case Color.Red:
@@ -33,4 +33,5 @@ namespace ClassWork4_2
 
             }
         }
+    }
 }

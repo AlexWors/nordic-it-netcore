@@ -15,9 +15,33 @@ namespace HomeWork4
             int medium = largeResidue / 5;
             int mediumResidue = largeResidue % 5;
             int small = mediumResidue;
-            if (large >= 1 && medium > 1 || medium <= 3 && small >= 1 || small <= 4)
-                Console.WriteLine("Вам потребуются упаковки: " + "Big: " + large + " Medium: " + medium + " small: " + small);
+            if (large == 0)
+            {
+                Console.WriteLine();
+            }
+            else if (large >= 1)
+            {
+                Console.WriteLine("Вам потребуются упаковки: " + "Big: " + large);
+            }
             
+            if (medium == 0)
+            {
+                Console.WriteLine();
+            }
+            else if (medium > 1 || medium <= 3)
+            {
+                Console.WriteLine("Вам потребуются упаковки: " + "Medium: " + medium);
+            }
+
+            if (small == 0)
+            {
+                Console.WriteLine();
+            }
+            else if(small >= 1 || small <= 4)
+                {
+                    Console.WriteLine("Вам потребуются упаковки: " + "small: " + small);
+                }
+                        
         }
         
     }
