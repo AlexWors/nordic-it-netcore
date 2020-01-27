@@ -25,8 +25,9 @@ namespace HomeWork5
             catch (FormatException)
             {
                 Console.WriteLine("Your entered wrong data!");
+                throw;
             }
-            
+           
             int figures = (int)(geometricFigures)input;
             try
             {
@@ -55,23 +56,23 @@ namespace HomeWork5
                         double height = double.Parse(Console.ReadLine());
                         Console.WriteLine("Enter the width of the rectangle ");
                         double width = double.Parse(Console.ReadLine());
-                        if (height <= 0 || width <= 0)
+                        if (height <= 0 && width <= 0)
                             throw new Exception("The value should be more than 0!");
                         area = Math.Round(height * width, 2);
                         perimeter = Math.Round((2 * height) + (2 * width), 2);
                         break;
-                    default:
-                        throw new Exception("Figure not defined!");
-                        
 
+                    default:
+                        Console.WriteLine("Figure not defined!");
+                        break;
                 }
             }
-            catch(FormatException)
+            catch(Exception)
             {
                 Console.WriteLine("Your entered wrong data!");
+                throw;
             }
-            
-
+           
                 Console.WriteLine($"Area of your figure = {area}");
                 Console.WriteLine($"Perimeter of your figure = {perimeter}");
         
