@@ -14,8 +14,9 @@ namespace ClassWork8_1
             while (true)
             {
                 input = Console.ReadLine();
+                numbers.Enqueue(double.Parse(input));
 
-                if(input == "run")
+                if (input == "run")
                 {
                     while (numbers.Count > 0)
                     {
@@ -31,7 +32,7 @@ namespace ClassWork8_1
                     break;
                 }
 
-                numbers.Enqueue(double.Parse(input));
+                
                 
             }
 
