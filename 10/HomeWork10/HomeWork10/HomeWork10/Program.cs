@@ -13,12 +13,12 @@ namespace HomeWork10
             {
                 try
                 {
-                    var person = new person();
+                    //var person = new person();
                     Console.WriteLine($"Введите имя{i + 1}: ");
-                    person.Name = Console.ReadLine();
+                    personArray[i].Name = Console.ReadLine();
                     Console.WriteLine($"Введите возраст{i + 1}: ");
-                    person.Age = int.Parse(Console.ReadLine());
-                    personArray[i] = person;
+                    personArray[i].Age = int.Parse(Console.ReadLine());
+                    //personArray[i] = person;
                 }
                 catch(Exception e)
                 {
