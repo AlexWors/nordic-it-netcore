@@ -10,9 +10,9 @@ namespace HomeWork11
 
         public string AlarmMessage { get; set; }
 
-        public TimeSpan TimeToAlarm { get { return DateTimeOffset.Now - AlarmDate; } }
+        public TimeSpan TimeToAlarm { get { return AlarmDate - DateTimeOffset.Now; } }
 
-        public bool IsOutdated { get {return TimeToAlarm.TotalSeconds >= 0; } }
+        public bool IsOutdated { get {return AlarmDate < DateTimeOffset.Now; } }
 
         public ReminderItem(DateTimeOffset alarmDate, string alarmMessage) 
         {

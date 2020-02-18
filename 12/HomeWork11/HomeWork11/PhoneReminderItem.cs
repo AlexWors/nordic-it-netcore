@@ -15,7 +15,7 @@ namespace HomeWork11
 
         public override void WriteProperties()
         {
-            Console.WriteLine($"\n{GetType().Name}, Alarm date: {AlarmDate:dd.MM.yyyy HH:mm:ss}, alarm mesage: {AlarmMessage}, time to alarm: {TimeToAlarm}, phone number: {PhoneNumber}, is outdated: {IsOutdated},");
+            Console.WriteLine($"{GetType().Name}, Alarm date: {AlarmDate:dd.MM.yyyy HH:mm:ss}, alarm mesage: {AlarmMessage}, time to alarm: {TimeToAlarm}, phone number: {PhoneNumber}, is outdated: {IsOutdated},");
         }
     }
 }
