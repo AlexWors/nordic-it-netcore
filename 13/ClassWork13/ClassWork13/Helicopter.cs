@@ -16,7 +16,10 @@ namespace ClassWork13
 
 		public override void WriteAllProperties()
 		{
-			Console.WriteLine($"Properties of helicopter: Blades count: {BladesCount}, current height: {CurrentHeight}, max height: {MaxHeight}");
+			Console.Write(
+				$"Properties of {GetType().Name}:" +
+				$"\n\t{nameof(BladesCount)}:\t{BladesCount}");
+			base.WriteAllProperties();
 		}
 	}
 }

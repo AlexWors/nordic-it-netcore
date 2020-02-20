@@ -6,7 +6,22 @@ namespace ClassWork13
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
+			try
+			{
+				var plane = new Plane(800, 4);
+				plane.TakeUpper(500);
+				plane.TakeLower(400);
+				plane.WriteAllProperties();
+
+				var helicopter = new Helicopter(500, 8);
+				helicopter.TakeUpper(600);
+				helicopter.TakeLower(600);
+				helicopter.WriteAllProperties();
+			}
+			catch(Exception e)
+			{
+				Console.WriteLine(e.Message);
+			}
 		}
 	}
 }

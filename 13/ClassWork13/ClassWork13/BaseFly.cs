@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ClassWork13
 {
-	public abstract class BaseFly
+	public abstract class BaseFly : IFlyingObject, IPropertiesWriter
 	{
 		public int MaxHeight { get; private set; }
 
@@ -30,7 +30,7 @@ namespace ClassWork13
 		{
 			if (delta <= 0)
 			{
-				throw new ArgumentOutOfRangeException();
+				throw new ArgumentOutOfRangeException("The value should be positive");
 			}
 			if (CurrentHeight - delta > 0)
 			{
@@ -54,7 +54,9 @@ namespace ClassWork13
 
 		public virtual void WriteAllProperties()
 		{
-			//добавить общие
+			Console.WriteLine(
+				$"\n\t{nameof(MaxHeight)}:\t{MaxHeight}" +
+				$"\n\t{nameof(CurrentHeight)}:\t{CurrentHeight}\n");
 		}
 	}
 }
