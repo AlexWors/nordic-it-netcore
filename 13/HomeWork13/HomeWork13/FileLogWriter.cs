@@ -5,7 +5,7 @@ using System.Text;
 
 namespace HomeWork13
 {
-    class FileLogWriter
+    class FileLogWriter : BaseWriterClass, ILogWriter
     {
         private string FileName { get; }
 
@@ -14,12 +14,15 @@ namespace HomeWork13
             FileName = fileName;
         }
 
-        public void WriteLog(string message)
+        public override void WriteMessage(string message, MessageType type)
         {
-            var sw = new StreamWriter(File.Open(FileName, FileMode.Append, FileAccess.Write, FileShare.None));
-            sw.WriteLine($"{DateTimeOffset.UtcNow:O}\t{message}");
-            //sw.Flush();
-            sw.Close();
+            var fs = File.Open(FileName, FileMode.OpenOrCreate);
+            fs.Seek(0, SeekOrigin.End);
+            var tw = new StreamWriter(fs);
+            tw.WriteLine($"{DateTimeOffset.Now:yyyy-MM-ddTHH:MM:ss+0000} {type} {message}");
+            tw.Close();
+            fs.Close();
         }
+
     }
 }
