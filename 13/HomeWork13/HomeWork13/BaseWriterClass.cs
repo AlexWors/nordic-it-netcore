@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HomeWork13
 {
-    class BaseWriterClass
+    abstract class BaseWriterClass
     {
         public void LogInfo(string message)
         {
@@ -21,9 +21,6 @@ namespace HomeWork13
             WriteMessage(message, MessageType.Error);
         }
 
-        public virtual void WriteMessage(string message, MessageType type)
-        {
-
-        }
+        public abstract void WriteMessage(string message, MessageType type);
     }
 }
