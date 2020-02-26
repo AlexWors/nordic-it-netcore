@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HomeWork13
 {
-    abstract class BaseWriterClass
+    abstract class BaseWriterClass : ILogWriter
     {
         public void LogInfo(string message)
         {
