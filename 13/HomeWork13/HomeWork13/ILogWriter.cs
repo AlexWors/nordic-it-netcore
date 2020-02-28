@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HomeWork13
 {
-    interface ILogWriter
+    public interface ILogWriter
     {
         void LogInfo(string message);
         void LogWarning(string message);

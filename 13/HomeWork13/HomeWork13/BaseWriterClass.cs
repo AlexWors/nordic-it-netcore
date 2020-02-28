@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HomeWork13
 {
-    abstract class BaseWriterClass : ILogWriter
+    public abstract class BaseWriterClass : ILogWriter
     {
         public void LogInfo(string message)
         {
@@ -22,5 +22,10 @@ namespace HomeWork13
         }
 
         public abstract void WriteMessage(string message, MessageType type);
+
+        public string FormatMessage(string message, MessageType type)
+        {
+            return $"{DateTimeOffset.Now:yyyy-MM-ddTHH:MM:ss+0000} {type} {message}";
+        }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace HomeWork13
 {
-    class FileLogWriter : BaseWriterClass, ILogWriter
+    public class FileLogWriter : BaseWriterClass, ILogWriter
     {
         private string FileName { get; }
 
@@ -19,10 +19,9 @@ namespace HomeWork13
             var fs = File.Open(FileName, FileMode.OpenOrCreate);
             fs.Seek(0, SeekOrigin.End);
             var tw = new StreamWriter(fs);
-            tw.WriteLine($"{DateTimeOffset.Now:yyyy-MM-ddTHH:MM:ss+0000} {type} {message}");
+            tw.WriteLine(FormatMessage(message, type));
             tw.Close();
             fs.Close();
         }
-
     }
 }
