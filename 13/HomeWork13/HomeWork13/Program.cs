@@ -6,8 +6,9 @@ namespace HomeWork13
     {
         static void Main(string[] args)
         {
-            var consoleWriter = new ConsoleLogWriter();
-            consoleWriter.WriteMessage("Writing...", MessageType.Info);
+            ILogWriter consoleWriter = new ConsoleLogWriter();
+            //consoleWriter.WriteMessage("Writing...", MessageType.Info);
+            consoleWriter.LogError("Writing...");
 
             var fileWriter = new FileLogWriter(@"C:\Users\111\nordic-it-netcore\13\HomeWork13\HomeWork13\bin\log.txt");
             fileWriter.WriteMessage("Writing...", MessageType.Error);

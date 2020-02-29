@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HomeWork13
 {
-    class MultipleLogWriter : ILogWriter
+    class MultipleLogWriter : BaseWriterClass
     {
         private IEnumerable<ILogWriter> _logWriters;
 
@@ -13,27 +13,22 @@ namespace HomeWork13
             _logWriters = writers;
         }
 
-        public void LogError(string message)
+         public override void WriteMessage(string message, MessageType type)
         {
             foreach(var item in _logWriters)
             {
-                item.LogError(message);
-            }
-        }
-
-        public void LogInfo(string message)
-        {
-            foreach (var item in _logWriters)
-            {
-                item.LogInfo(message);
-            }
-        }
-
-        public void LogWarning(string message)
-        {
-            foreach (var item in _logWriters)
-            {
-                item.LogWarning(message);
+                switch (type)
+                {
+                    case MessageType.Error:
+                        item.LogError(message);
+                        break;
+                    case MessageType.Info:
+                        item.LogInfo(message);
+                        break;
+                    case MessageType.Warning:
+                        item.LogWarning(message);
+                        break;
+                }
             }
         }
     }
