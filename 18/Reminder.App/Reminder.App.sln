@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reminder.App", "Reminder.App\Reminder.App.csproj", "{46A2A3A9-C6B6-46FB-95FE-9E4AA01534F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reminder.Storage.Core", "Reminder.Storage.Core\Reminder.Storage.Core.csproj", "{E5FC792A-9D3A-4710-BB54-EA319A698884}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reminder.Storage.InMemory", "Reminder.Storage.InMemory\Reminder.Storage.InMemory.csproj", "{E5011484-0AA8-41D3-A055-5511F1CCCD40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reminder.Storage.InMemory.Tests", "Reminder.Storage.InMemory.Tests\Reminder.Storage.InMemory.Tests.csproj", "{6CA24DC4-2927-4981-8F2A-0D62A9E136FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reminder.Storage.Core.Tests", "Reminder.Storage.Core.Tests\Reminder.Storage.Core.Tests.csproj", "{4C1BE18E-2DAE-437F-B57D-71652490A93D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46A2A3A9-C6B6-46FB-95FE-9E4AA01534F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46A2A3A9-C6B6-46FB-95FE-9E4AA01534F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46A2A3A9-C6B6-46FB-95FE-9E4AA01534F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46A2A3A9-C6B6-46FB-95FE-9E4AA01534F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5FC792A-9D3A-4710-BB54-EA319A698884}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5FC792A-9D3A-4710-BB54-EA319A698884}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5FC792A-9D3A-4710-BB54-EA319A698884}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5FC792A-9D3A-4710-BB54-EA319A698884}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5011484-0AA8-41D3-A055-5511F1CCCD40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5011484-0AA8-41D3-A055-5511F1CCCD40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5011484-0AA8-41D3-A055-5511F1CCCD40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5011484-0AA8-41D3-A055-5511F1CCCD40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CA24DC4-2927-4981-8F2A-0D62A9E136FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CA24DC4-2927-4981-8F2A-0D62A9E136FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CA24DC4-2927-4981-8F2A-0D62A9E136FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CA24DC4-2927-4981-8F2A-0D62A9E136FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C1BE18E-2DAE-437F-B57D-71652490A93D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C1BE18E-2DAE-437F-B57D-71652490A93D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C1BE18E-2DAE-437F-B57D-71652490A93D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C1BE18E-2DAE-437F-B57D-71652490A93D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7C766876-BB71-48CF-B2C1-A534F6748E97}
+	EndGlobalSection
+EndGlobal
