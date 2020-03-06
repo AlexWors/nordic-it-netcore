@@ -13,6 +13,11 @@ namespace Reminder.App
             storage.Add(new ReminderItem(Guid.NewGuid(), "TelegramContactId", DateTimeOffset.Now, "Hello><", null));
 
             List<ReminderItem> list = storage.Get(ReminderItemStatus.Awaiting);
+
+            foreach(var i in list)
+            {
+                Console.WriteLine(i);
+            }
         }
     }
 }

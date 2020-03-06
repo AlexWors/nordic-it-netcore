@@ -18,10 +18,9 @@ namespace ClassWork10_1
             };
 
             pet1.SetBirthPlace("Chelyabinsk");
-
-
-
             pet1.WriteDescription(true);
+
+
             Pet pet2 = new Pet("Mars", 2, Kind.Cat, 'F', DateTimeOffset.Parse("2015-08-13 "));
 
             pet2.SetBirthPlace("Khazakhstan");
