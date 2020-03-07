@@ -10,10 +10,10 @@ namespace Reminder.Storage.Core.Tests
         public void Property_TimeToAllarm_Should_Be_Negative_For_Date_In_The_Past()
         {
             //prepare test data
-            ReminderItem item = new ReminderItem(Guid.Empty, null, DateTimeOffset.Now.AddSeconds(-1), null, null);
+            ReminderItem item = new ReminderItem(Guid.Empty, null, DateTimeOffset.Now.AddSeconds(-1), null, ReminderItemStatus.Awaiting);
 
             //do the test
-            TimeSpan delta = item.TimeToAllarm;
+            TimeSpan delta = item.TimeToAlarm;
 
             //chek result
             Assert.IsTrue(delta < TimeSpan.Zero);

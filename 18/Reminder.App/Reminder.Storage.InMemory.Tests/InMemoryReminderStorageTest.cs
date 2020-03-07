@@ -13,7 +13,7 @@ namespace Reminder.Storage.InMemory.Tests
         {
             //prepare test data
             var storage = new InMemoryReminderStorage();
-            var expected = new ReminderItem(Guid.NewGuid(), "TelegramContactId", DateTimeOffset.Now, "Hello><", null);
+            var expected = new ReminderItem(Guid.NewGuid(), "TelegramContactId", DateTimeOffset.Now, "Hello><", ReminderItemStatus.Awaiting);
 
             //do the test
             storage.Add(expected);
@@ -50,7 +50,7 @@ namespace Reminder.Storage.InMemory.Tests
         {
             //prepare test data
             var storage = new InMemoryReminderStorage();
-            var expected = new ReminderItem(Guid.NewGuid(), "TelegramContactId", DateTimeOffset.Now, "Hello><", null);
+            var expected = new ReminderItem(Guid.NewGuid(), "TelegramContactId", DateTimeOffset.Now, "Hello><", ReminderItemStatus.Awaiting);
             storage.Storage.Add(expected.Id, expected);
 
             //do the test

@@ -14,15 +14,17 @@ namespace Reminder.Storage.Core
 
         public ReminderItemStatus Status { get; set; }
 
-        public TimeSpan TimeToAllarm => Date - DateTimeOffset.Now;
+        public TimeSpan TimeToAlarm => Date - DateTimeOffset.Now;
 
-        public ReminderItem(Guid id, string contactId, DateTimeOffset date, string message, ReminderItem status)
+        public bool IsTimeToSend => TimeToAlarm <= TimeSpan.Zero;
+
+        public ReminderItem(Guid id, string contactId, DateTimeOffset date, string message, ReminderItemStatus status)
         {
             Id = id;
             ContactId = contactId;
             Date = date;
             Message = message;
-            //Status = status;
+            Status = status;
         }
 
         public override string ToString()

@@ -8,6 +8,16 @@ namespace Reminder.Storage.InMemory
     public class InMemoryReminderStorage : IReminderStorage
     {
         internal readonly Dictionary<Guid, ReminderItem> Storage;
+
+        //public delegate void WhenAddingDone(object sender, EventArgs e);    
+        //public WhenAddingDone RunWhenAddingDone { get; set; }
+
+        public EventHandler RunWhenAddingDone { get; set; }
+
+        public EventHandler RunWhenUpdatingDone { get; set; }
+
+        public event EventHandler OnAddSuccess;
+
         public InMemoryReminderStorage()
         {
             Storage = new Dictionary<Guid, ReminderItem>();
@@ -16,11 +26,18 @@ namespace Reminder.Storage.InMemory
         public void Add(ReminderItem reminderItem)
         {
             Storage.Add(reminderItem.Id, reminderItem);
+            if (RunWhenAddingDone != null)
+                RunWhenAddingDone(this, EventArgs.Empty);
+
+            if (OnAddSuccess != null)
+                OnAddSuccess(this, EventArgs.Empty);
         }
 
         public void Update(ReminderItem reminderItem)
         {
             Storage[reminderItem.Id] = reminderItem;
+            if(RunWhenUpdatingDone != null)
+                RunWhenUpdatingDone(this, EventArgs.Empty);
         }
 
         public ReminderItem Get(Guid id)
