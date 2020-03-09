@@ -16,8 +16,13 @@ namespace Reminder.App
             ReminderDomain domain = new ReminderDomain(storage);
 
             domain.ReminderItemStatusChanged += OnReminderItemReady;
+            domain.ReminderItemStatusFailed += OnReminderItemSendingFailure;
 
-            var item = new ReminderItem(Guid.NewGuid(), "TelegramContactId", DateTimeOffset.Now.AddSeconds(2), "Hello><", ReminderItemStatus.Awaiting);
+            var item = new ReminderItem(
+                Guid.NewGuid(), 
+                "TelegramContactId", 
+                DateTimeOffset.Now.AddSeconds(2), 
+                "Hello><");
 
             storage.Add(item);
 
@@ -42,6 +47,11 @@ namespace Reminder.App
             Console.WriteLine($"Reminder of contact {e.Reminder.ContactId} " +
                 $"has changed status from {e.Reminder.PreviousStatus} " +
                 $"to {e.Reminder.Status} !");
+        }
+
+        private static void OnReminderItemSendingFailure(object sender, ReminderItemSendingFailedEventArgs e)
+        {
+            Console.WriteLine($"Reminder {e.Reminder.ContactId} failed to send with exception {e.Reminder.WriteException.Message}!");
         }
     }
 }

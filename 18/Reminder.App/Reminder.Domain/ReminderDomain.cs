@@ -32,6 +32,11 @@ namespace Reminder.Domain
                 null,
                 TimeSpan.Zero,
                 TimeSpan.FromSeconds(1));
+            _readyReminderSendTimer = new Timer(
+                SendReadyReminders, 
+                null, 
+                TimeSpan.FromSeconds(2), 
+                TimeSpan.FromSeconds(1));
         }
 
         private void CheckAwaitingReminders(object dummy)
@@ -62,12 +67,20 @@ namespace Reminder.Domain
                 try
                 {
                     // if okay raise event SendingSucceeded
+                    ReminderItemStatus previousStatus = item.Status;
                     item.Status = ReminderItemStatus.SuccessfullySent;
                     _storage.Update(item);
+                    if (ReminderItemStatusChanged != null)
+                        ReminderItemStatusChanged(this, new ReminderItemStatusChangedEventArgs(new ReminderItemStatusChangedModel(item, previousStatus)));
                 }
-                catch
+                catch(Exception e)
                 {
                     // if exception raise event SendingFailed
+                    ReminderItemStatus previousStatus = item.Status;
+                    item.Status = ReminderItemStatus.Failed;
+                    _storage.Update(item);
+                    if (ReminderItemStatusFailed != null)
+                        ReminderItemStatusFailed(this, new ReminderItemSendingFailedEventArgs(new ReminderItemSendingFailedModel(item, previousStatus, e)));
                 }
             }
 

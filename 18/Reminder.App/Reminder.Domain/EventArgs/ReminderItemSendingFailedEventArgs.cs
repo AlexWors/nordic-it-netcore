@@ -7,8 +7,13 @@ namespace Reminder.Domain.EventArgs
 {
     public class ReminderItemSendingFailedEventArgs : System.EventArgs
     {
-        ReminderItemSendingFailedModel() { }
+        public ReminderItemSendingFailedModel Reminder { get; set; }
 
-        public Exception SendException { get; set; }
+        //public Exception WriteException { get; set; }
+
+        public ReminderItemSendingFailedEventArgs(ReminderItemSendingFailedModel reminder)
+        {
+            Reminder = reminder;
+        }
     }
 }

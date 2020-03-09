@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Reminder.Domain.Model
 {
-    class ReminderItemSendingFailedModel
+    public class ReminderItemSendingFailedModel
     {
         public string ContactId { get; set; }
 
@@ -13,14 +13,24 @@ namespace Reminder.Domain.Model
 
         public string Message { get; set; }
 
+        public string AlarmMessage { get; set; }
+
+        public ReminderItemStatus PreviousStatus { get; set; }
+
+        public DateTimeOffset AlarmDate { get; set; }
+
         public ReminderItemStatus Status { get; set; }
 
-        public ReminderItemSendingFailedModel(ReminderItem reminderItem)
+        public Exception WriteException { get; set; }
+
+        public ReminderItemSendingFailedModel(ReminderItem reminderItem, ReminderItemStatus previousStatus, Exception writeException)
         {
             Date = reminderItem.Date;
             ContactId = reminderItem.ContactId;
             Message = reminderItem.Message;
             Status = reminderItem.Status;
+            PreviousStatus = previousStatus;
+            WriteException = writeException;
         }
     }
 }

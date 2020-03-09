@@ -15,6 +15,14 @@ namespace Reminder.Domain.Model
 
         public ReminderItemStatus PreviousStatus { get; set; }
 
+        public ReminderItemStatusChangedModel()
+
+        {
+
+
+
+        }
+
         public ReminderItemStatusChangedModel(ReminderItem reminderItem, ReminderItemStatus previousStatus)
         {
             Date = reminderItem.Date;

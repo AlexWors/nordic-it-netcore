@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reminder.Storage.InMemory.T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reminder.Storage.Core.Tests", "Reminder.Storage.Core.Tests\Reminder.Storage.Core.Tests.csproj", "{4C1BE18E-2DAE-437F-B57D-71652490A93D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reminder.Domain", "Reminder.Domain\Reminder.Domain.csproj", "{FBC4F809-FF0B-4B3B-A879-711970CF8F9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reminder.Domain", "Reminder.Domain\Reminder.Domain.csproj", "{FBC4F809-FF0B-4B3B-A879-711970CF8F9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reminder.Domain.Tests", "Reminder.Domain.Tests\Reminder.Domain.Tests.csproj", "{39871559-9621-43B8-AC7F-3FC1352943AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{FBC4F809-FF0B-4B3B-A879-711970CF8F9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBC4F809-FF0B-4B3B-A879-711970CF8F9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBC4F809-FF0B-4B3B-A879-711970CF8F9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39871559-9621-43B8-AC7F-3FC1352943AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39871559-9621-43B8-AC7F-3FC1352943AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39871559-9621-43B8-AC7F-3FC1352943AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39871559-9621-43B8-AC7F-3FC1352943AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

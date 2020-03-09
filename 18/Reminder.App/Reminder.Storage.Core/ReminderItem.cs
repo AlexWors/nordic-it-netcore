@@ -18,18 +18,27 @@ namespace Reminder.Storage.Core
 
         public bool IsTimeToSend => TimeToAlarm <= TimeSpan.Zero;
 
-        public ReminderItem(Guid id, string contactId, DateTimeOffset date, string message, ReminderItemStatus status)
+        public ReminderItem(
+            Guid id, 
+            string contactId, 
+            DateTimeOffset date, 
+            string message)
         {
             Id = id;
             ContactId = contactId;
             Date = date;
             Message = message;
-            Status = status;
+            Status = ReminderItemStatus.Awaiting;
         }
 
         public override string ToString()
         {
-            return $"{typeof(ReminderItem)}" + $"{Id}: " + $"{Status}; " + $"Fire Date: {Date}; " + $"Contact ID: {ContactId}; " + $"Message:\"{Message}\"";
+            return $"{typeof(ReminderItem)}" + 
+                $"{Id}: " + 
+                $"{Status}; " + 
+                $"Fire Date: {Date}; " + 
+                $"Contact ID: {ContactId}; " + 
+                $"Message:\"{Message}\"";
         }
     }
 }
