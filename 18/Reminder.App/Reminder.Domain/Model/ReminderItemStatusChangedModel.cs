@@ -19,14 +19,14 @@ namespace Reminder.Domain.Model
 
         {
 
-
-
         }
 
-        public ReminderItemStatusChangedModel(ReminderItem reminderItem, ReminderItemStatus previousStatus)
+        public ReminderItemStatusChangedModel(
+            ReminderItem reminderItem, 
+            ReminderItemStatus previousStatus)
         {
             Date = reminderItem.Date;
-            ContactId = reminderItem.ContactId;
+            ContactId = reminderItem.ContactID;
             Message = reminderItem.Message;
             Status = reminderItem.Status;
             PreviousStatus = previousStatus;

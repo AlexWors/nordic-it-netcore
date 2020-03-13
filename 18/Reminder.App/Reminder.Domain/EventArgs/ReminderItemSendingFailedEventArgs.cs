@@ -11,9 +11,10 @@ namespace Reminder.Domain.EventArgs
 
         //public Exception WriteException { get; set; }
 
-        public ReminderItemSendingFailedEventArgs(ReminderItemSendingFailedModel reminder)
+        public ReminderItemSendingFailedEventArgs(ReminderItemSendingFailedModel reminder)//, Exception exception)
         {
             Reminder = reminder;
+            //WriteException = exception;
         }
     }
 }

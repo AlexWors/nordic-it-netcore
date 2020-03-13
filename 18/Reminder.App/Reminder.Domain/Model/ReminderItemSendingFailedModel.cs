@@ -23,14 +23,19 @@ namespace Reminder.Domain.Model
 
         public Exception WriteException { get; set; }
 
-        public ReminderItemSendingFailedModel(ReminderItem reminderItem, ReminderItemStatus previousStatus, Exception writeException)
+        public ReminderItemSendingFailedModel()
+        {
+
+        }
+
+        public ReminderItemSendingFailedModel(ReminderItem reminderItem, ReminderItemStatus previousStatus, Exception exception)
         {
             Date = reminderItem.Date;
-            ContactId = reminderItem.ContactId;
+            ContactId = reminderItem.ContactID;
             Message = reminderItem.Message;
             Status = reminderItem.Status;
             PreviousStatus = previousStatus;
-            WriteException = writeException;
+            WriteException = exception;
         }
     }
 }

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Threading;
 using Reminder.Domain.EventArgs;
 using Reminder.Domain.Model;
+using Reminder.Parsing;
+using Reminder.Receiver.Core;
+using Reminder.Sender.Core;
 using Reminder.Storage.Core;
 
 namespace Reminder.Domain
@@ -10,9 +13,10 @@ namespace Reminder.Domain
     public class ReminderDomain
     {
         private IReminderStorage _storage;
+        private IReminderReceiver _receiver;
+        private IReminderSender _sender;
 
         private Timer _awaitingRemindersCheckTimer;
-
         private Timer _readyReminderSendTimer;
 
         public event EventHandler<ReminderItemStatusChangedEventArgs> ReminderItemStatusChanged;
@@ -20,9 +24,13 @@ namespace Reminder.Domain
 
 
 
-        public ReminderDomain(IReminderStorage storage)
+        public ReminderDomain(IReminderStorage storage, IReminderReceiver receiver, IReminderSender sender)
         {
             _storage = storage;
+            _receiver = receiver;
+            _sender = sender;
+
+            _receiver.MessageReceived += ReceiverOnMessageReceived;
         }
 
         public void Run()
@@ -35,8 +43,10 @@ namespace Reminder.Domain
             _readyReminderSendTimer = new Timer(
                 SendReadyReminders, 
                 null, 
-                TimeSpan.FromSeconds(2), 
+                TimeSpan.Zero, 
                 TimeSpan.FromSeconds(1));
+
+            _receiver.Run();
         }
 
         private void CheckAwaitingReminders(object dummy)
@@ -60,32 +70,63 @@ namespace Reminder.Domain
         private void SendReadyReminders(object dummy)
         {
             // read items in status ReadyToSend
-            List<ReminderItem> list = _storage.Get(ReminderItemStatus.ReadyToSend);
-            foreach(ReminderItem item in list)
+            var items = _storage.Get(ReminderItemStatus.ReadyToSend);
+            foreach(ReminderItem item in items)
             {
+                var previousStatus = item.Status;
                 // and try To Send
                 try
                 {
+
+                    _sender.Send(item.ContactID, item.Message);
                     // if okay raise event SendingSucceeded
-                    ReminderItemStatus previousStatus = item.Status;
+
                     item.Status = ReminderItemStatus.SuccessfullySent;
                     _storage.Update(item);
-                    if (ReminderItemStatusChanged != null)
-                        ReminderItemStatusChanged(this, new ReminderItemStatusChangedEventArgs(new ReminderItemStatusChangedModel(item, previousStatus)));
+                    ReminderItemStatusChanged?.Invoke(
+                        this, 
+                        new ReminderItemStatusChangedEventArgs(
+                            new ReminderItemStatusChangedModel(
+                                item, 
+                                previousStatus)));
                 }
                 catch(Exception e)
                 {
                     // if exception raise event SendingFailed
-                    ReminderItemStatus previousStatus = item.Status;
                     item.Status = ReminderItemStatus.Failed;
                     _storage.Update(item);
-                    if (ReminderItemStatusFailed != null)
-                        ReminderItemStatusFailed(this, new ReminderItemSendingFailedEventArgs(new ReminderItemSendingFailedModel(item, previousStatus, e)));
+                    ReminderItemStatusFailed?.Invoke(
+                        this, 
+                        new ReminderItemSendingFailedEventArgs(
+                            new ReminderItemSendingFailedModel(
+                                item, 
+                                previousStatus,
+                                e)));
                 }
+            }
+        }
+
+        private void ReceiverOnMessageReceived(object sender, MessageReceivedEventArgs e)
+        {
+            //parsing of the e.Message to get
+            var parsedMessage = MessageParser.ParseMessage(e.Message);
+
+            if(parsedMessage == null)
+            {
+                //we can rise some MessageParsingFailed event
             }
 
             
-            
+            var item = new ReminderItem(
+                Guid.NewGuid(),
+                e.ContactId,
+                parsedMessage.Date,
+                parsedMessage.Message);
+            //adding new reminder item to the strage
+            _storage.Add(item);
+
+            //send message that reminder item was added 
+            _sender.Send(e.ContactId, "Reminder added!");
         }
     }
 }

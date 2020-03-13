@@ -28,7 +28,7 @@ namespace Reminder.Storage.InMemory.Tests
 
             Assert.IsNotNull(actual);
             Assert.AreEqual(expected.Id, actual.Id);
-            Assert.AreEqual(expected.ContactId, actual.ContactId);
+            Assert.AreEqual(expected.ContactID, actual.ContactID);
             Assert.AreEqual(expected.Status, actual.Status);
             Assert.AreEqual(expected.Date, actual.Date);
             Assert.AreEqual(expected.Message, actual.Message);

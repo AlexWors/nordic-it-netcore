@@ -6,7 +6,7 @@ namespace Reminder.Storage.Core
     {
         public Guid Id { get; }
 
-        public string ContactId { get; set; }
+        public string ContactID { get; set; }
 
         public DateTimeOffset Date { get; set; }
 
@@ -25,7 +25,7 @@ namespace Reminder.Storage.Core
             string message)
         {
             Id = id;
-            ContactId = contactId;
+            ContactID = contactId;
             Date = date;
             Message = message;
             Status = ReminderItemStatus.Awaiting;
@@ -37,7 +37,7 @@ namespace Reminder.Storage.Core
                 $"{Id}: " + 
                 $"{Status}; " + 
                 $"Fire Date: {Date}; " + 
-                $"Contact ID: {ContactId}; " + 
+                $"Contact ID: {ContactID}; " + 
                 $"Message:\"{Message}\"";
         }
     }
