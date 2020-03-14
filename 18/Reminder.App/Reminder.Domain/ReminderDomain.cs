@@ -114,6 +114,8 @@ namespace Reminder.Domain
             if(parsedMessage == null)
             {
                 //we can rise some MessageParsingFailed event
+                _sender.Send(e.ContactId, "Wrong message!");
+                return;
             }
 
             
