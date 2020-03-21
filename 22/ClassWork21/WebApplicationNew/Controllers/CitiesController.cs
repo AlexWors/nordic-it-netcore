@@ -54,5 +54,26 @@ namespace WebApplicationNew.Controllers
 
 			return CreatedAtRoute("GetCityById", new { id = city.Id }, city);
 		}
+
+		[Http]
+		public IActionResult DeleteCity(int id)
+		{
+			var city = store.Cities.FirstOrDefault(x => x.Id == id);
+
+			if(city == null)
+			{
+				return NotFound("404 Not Found");
+			}
+		}
+
+		[Http]
+		public IActionResult UpdateCity([FromBody] City city)
+		{
+			var city = store.Cities.FirstOrDefault(x => x.Id == city.id);
+
+			if (city == null)
+				return NotFound("404 Not Found");
+		}
+
 	}
 }
