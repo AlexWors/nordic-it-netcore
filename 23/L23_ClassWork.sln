@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29424.173
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L23_C01_asp_net_core_app", "L23_C01_asp_net_core_app\L23_C01_asp_net_core_app.csproj", "{CD450726-CAC7-4193-BF22-6AEDE4A53003}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CitiesData.Core", "CitiesData.Core\CitiesData.Core.csproj", "{B7997442-7F2E-4054-89ED-D95631195AB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CitiesData.InMemory", "CitiesData.InMemory\CitiesData.InMemory.csproj", "{EC1BF0B2-D557-4FE6-B829-F35726BB1000}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{CD450726-CAC7-4193-BF22-6AEDE4A53003}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD450726-CAC7-4193-BF22-6AEDE4A53003}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD450726-CAC7-4193-BF22-6AEDE4A53003}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7997442-7F2E-4054-89ED-D95631195AB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7997442-7F2E-4054-89ED-D95631195AB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7997442-7F2E-4054-89ED-D95631195AB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7997442-7F2E-4054-89ED-D95631195AB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC1BF0B2-D557-4FE6-B829-F35726BB1000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC1BF0B2-D557-4FE6-B829-F35726BB1000}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC1BF0B2-D557-4FE6-B829-F35726BB1000}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC1BF0B2-D557-4FE6-B829-F35726BB1000}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

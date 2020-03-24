@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using L23_C01_asp_net_core_app.Data;
+using CitiesData.Core;
 using L23_C01_asp_net_core_app.Validation;
 
 namespace L23_C01_asp_net_core_app.Models
@@ -12,7 +12,7 @@ namespace L23_C01_asp_net_core_app.Models
 		//Обязательное поле
 		//ограничено по длине 100
 		public string Name { get; set; }
-		//Обязательное поле
+		
 		//ограничено по длине 300
 		
 		[MaxLength(300)]

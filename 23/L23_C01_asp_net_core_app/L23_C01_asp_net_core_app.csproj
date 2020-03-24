@@ -12,5 +12,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CitiesData.Core\CitiesData.Core.csproj" />
+    <ProjectReference Include="..\CitiesData.InMemory\CitiesData.InMemory.csproj" />
+  </ItemGroup>
+
 
 </Project>

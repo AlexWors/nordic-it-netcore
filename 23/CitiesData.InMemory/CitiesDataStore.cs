@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using CitiesData.Core;
 
-namespace L23_C01_asp_net_core_app.Data
+namespace CitiesData.InMemory
 {
 	public class CitiesDataStore : ICItiesDataStore
 	{

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using L23_C01_asp_net_core_app.Data;
+using CitiesData.Core;
 using L23_C01_asp_net_core_app.Models;
 
 namespace L23_C01_asp_net_core_app.Controllers
