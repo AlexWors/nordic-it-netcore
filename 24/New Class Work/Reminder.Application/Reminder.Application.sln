@@ -23,6 +23,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reminder.Parsing.Tests", "R
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reminder.Receiver.Telegram.Tests", "Reminder.Receiver.Telegram.Tests\Reminder.Receiver.Telegram.Tests.csproj", "{50CE39AD-556A-4099-B2D7-FD8AA8455C0A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reminder.Storage.Core", "..\Reminder.Storage\Reminder.Storage.Core\Reminder.Storage.Core.csproj", "{50C0AE0A-5658-4899-8641-627FD81263F2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reminder.Storage.WebApi.Core", "..\Reminder.Storage\Reminder.Storage.WebApi.Core\Reminder.Storage.WebApi.Core.csproj", "{951FAAAC-3686-4211-9BD5-CE0D3A43CE3C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reminder.Storage.WebApi.Client", "..\Reminder.Storage\Reminder.Storage.WebApi.Client\Reminder.Storage.WebApi.Client.csproj", "{39156296-F44F-42D0-AE72-EBFD9CB4BCD7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +75,18 @@ Global
 		{50CE39AD-556A-4099-B2D7-FD8AA8455C0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50CE39AD-556A-4099-B2D7-FD8AA8455C0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50CE39AD-556A-4099-B2D7-FD8AA8455C0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50C0AE0A-5658-4899-8641-627FD81263F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50C0AE0A-5658-4899-8641-627FD81263F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50C0AE0A-5658-4899-8641-627FD81263F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50C0AE0A-5658-4899-8641-627FD81263F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{951FAAAC-3686-4211-9BD5-CE0D3A43CE3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{951FAAAC-3686-4211-9BD5-CE0D3A43CE3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{951FAAAC-3686-4211-9BD5-CE0D3A43CE3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{951FAAAC-3686-4211-9BD5-CE0D3A43CE3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39156296-F44F-42D0-AE72-EBFD9CB4BCD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39156296-F44F-42D0-AE72-EBFD9CB4BCD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39156296-F44F-42D0-AE72-EBFD9CB4BCD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39156296-F44F-42D0-AE72-EBFD9CB4BCD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

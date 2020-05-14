@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Net;
 using MihaZupan;
+using Newtonsoft.Json;
 using Reminder.Domain;
 using Reminder.Domain.EventArgs;
 using Reminder.Receiver.Telegram;
 using Reminder.Sender.Telegram;
-using Reminder.Storage.InMemory;
+using Reminder.Storage.Core;
+using Reminder.Storage.WebApi.Client;
 
 namespace Reminder.App
 {
@@ -13,30 +15,44 @@ namespace Reminder.App
 	{
 		static void Main(string[] args)
 		{
-			var storage = new InMemoryReminderStorage();
+			var storage = new ReminderStorageWebApiClient("https://localhost:44344/api/reminders/");
 
-			const string telegramBotAccessToken = "633428988:AAHLW_LaS7A47PDO2I8sbLkIIM9L0joPOSQ";
-			const string telegramBotProxyHost = "proxy.golyakov.net";
-			const int telegramBotProxyPort = 1080;
+			var reminderItemRestricted = new ReminderItemRestricted
+			{
+				ContactId = "09090909090",
+				Date = DateTimeOffset.Now,
+				Message = "test message",
+				Status = ReminderItemStatus.Awaiting
+			};
 
-			IWebProxy telegramProxy =
-				new HttpToSocks5Proxy(telegramBotProxyHost, telegramBotProxyPort);
+			Guid id = storage.Add(reminderItemRestricted);
 
-			var receiver = new TelegramReminderReceiver(telegramBotAccessToken, telegramProxy);
-			var sender = new TelegramReminderSender(telegramBotAccessToken, telegramProxy);
+			ReminderItem reminderItem = storage.Get(id);
 
-			var domain = new ReminderDomain(storage, receiver, sender);
+			Console.WriteLine(JsonConvert.SerializeObject(reminderItem));
 
-			domain.AddingSucceeded += Domain_AddingSucceeded;
-			domain.SendingSucceeded += Domain_SendingSucceeded;
-			domain.SendingFailed += Domain_SendingFailed;
+			//const string telegramBotAccessToken = "633428988:AAHLW_LaS7A47PDO2I8sbLkIIM9L0joPOSQ";
+			//const string telegramBotProxyHost = "proxy.golyakov.net";
+			//const int telegramBotProxyPort = 1080;
 
-			domain.Run();
+			//IWebProxy telegramProxy =
+			//	new HttpToSocks5Proxy(telegramBotProxyHost, telegramBotProxyPort);
 
-			Console.WriteLine(
-				"Reminder application is running...\n" +
-				"Press [Enter] to shutdown.");
-			Console.ReadLine();
+			//var receiver = new TelegramReminderReceiver(telegramBotAccessToken, telegramProxy);
+			//var sender = new TelegramReminderSender(telegramBotAccessToken, telegramProxy);
+
+			//var domain = new ReminderDomain(storage, receiver, sender);
+
+			//domain.AddingSucceeded += Domain_AddingSucceeded;
+			//domain.SendingSucceeded += Domain_SendingSucceeded;
+			//domain.SendingFailed += Domain_SendingFailed;
+
+			//domain.Run();
+
+			//Console.WriteLine(
+			//	"Reminder application is running...\n" +
+			//	"Press [Enter] to shutdown.");
+			//Console.ReadLine();
 		}
 
 		private static void Domain_AddingSucceeded(

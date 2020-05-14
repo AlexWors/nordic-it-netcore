@@ -28,9 +28,14 @@ namespace Reminder.Storage.InMemory
 		/// <summary>
 		/// Adds a new item to the storage.
 		/// </summary>
-		public void Add(ReminderItem item)
+		public Guid Add(ReminderItemRestricted item)
 		{
-			Reminders.Add(item.Id, item);
+			Guid id = Guid.NewGuid();
+
+			ReminderItem reminderItem = new ReminderItem(id, item);
+
+			Reminders.Add(id, reminderItem);
+			return id;
 		}
 
 		/// <summary>
